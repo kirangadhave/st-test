@@ -1,4 +1,3 @@
-from vega_datasets import data
 import matplotlib.pyplot as plt
 import altair as alt
 import pandas as pd
@@ -29,19 +28,6 @@ st.write({
     "b": "B"
     })
 
-
-cars_df = data.cars()
-
-st.write("## Dataframes")
-
-st.write("### Interactive Dataframes")
-
-cars_df
-
-st.write("### Static tables")
-st.table(cars_df.head())
-
-
 st.write("## Charts")
 
 st.write("### Inbuilt charting")
@@ -53,23 +39,6 @@ st.line_chart(chart_data)
 
 
 st.write("### matplotlib")
-
-# Plot the horsepower vs. weight
-plt.scatter(cars_df['Horsepower'],cars_df['Weight_in_lbs'])
-plt.xlabel('Horsepower')
-plt.ylabel('Weight')
-
-st.pyplot(plt)
-
-
-st.write("### Vega-Altair")
-chart = alt.Chart(cars_df).mark_point().encode(
-            x="Miles_per_Gallon:Q",
-            y="Weight_in_lbs:Q"
-        ).interactive()
-
-chart
-
 
 st.write("## Maps")
 map_data = pd.DataFrame(
